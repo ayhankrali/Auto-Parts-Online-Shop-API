@@ -3,6 +3,8 @@ package com.example.AutoPartsOnlineShopApi.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Set;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -33,4 +35,7 @@ public class PartCategory {
 
     // Country where the parts are manufactured
     private String countryOfOrigin;
+
+    @OneToMany(mappedBy = "category")
+    private Set<Part> parts;
 }

@@ -3,6 +3,8 @@ package com.example.AutoPartsOnlineShopApi.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Set;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -28,5 +30,8 @@ public class Make {
 
     // Indicates if the car manufacturer is a luxury brand
     private boolean isLuxuryBrand;
+
+    @OneToMany(mappedBy = "make")
+    private Set<Model> models;
 
 }
