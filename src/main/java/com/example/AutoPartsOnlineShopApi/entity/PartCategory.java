@@ -21,21 +21,24 @@ public class PartCategory {
 
     private String description;
 
-    // Manufacturer of the part category
+    @Column(name = "manufacturer")
     private String manufacturer;
 
-    // Material of the parts in this category
+    @Column(name = "material")
     private String material;
 
     // Indicates if the parts are Original Equipment Manufacturer
+    @Column(name = "is_oem")
     private boolean isOEM;
 
     // Average weight of parts in this category
+    @Column(name = "weight")
     private Integer weight;
 
     // Country where the parts are manufactured
+    @Column(name = "country_of_origin")
     private String countryOfOrigin;
 
-    @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Part> parts;
 }

@@ -2,6 +2,7 @@ package com.example.AutoPartsOnlineShopApi.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.antlr.v4.runtime.misc.NotNull;
 
 import java.util.Set;
 
@@ -17,21 +18,31 @@ public class Model {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "name")
+    @NonNull
     private String name;
 
+    @Column(name = "production_year")
+    @NonNull
     private Integer productionYear;
 
+    @Column(name = "fuel_type")
+    @NonNull
     private String fuelType;
 
+    @Column(name = "engine_capacity")
+    @NonNull
     private Double engineCapacity;
 
-    // Indicates if the car model is 4x4
+    @Column(name = "is_four_wheel_drive")
     private boolean isFourWheelDrive;
 
     @ManyToOne
     @JoinColumn(name = "make_id")
+    @NonNull
     private Make make;
 
     @ManyToMany(mappedBy = "compatibleModels")
+    @NonNull
     private Set<Part> compatibleParts;
 }
