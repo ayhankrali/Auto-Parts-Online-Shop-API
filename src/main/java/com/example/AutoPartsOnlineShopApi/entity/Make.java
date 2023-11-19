@@ -21,11 +21,12 @@ public class Make {
     private String countryOfOrigin;
 
     // Year the car manufacturer was founded
-    private int foundingYear;
+    private Integer foundingYear;
 
     // Location of the car manufacturer's headquarters
     private String headquarters;
 
     // Indicates if the car manufacturer is a luxury brand
     private boolean isLuxuryBrand;
+
 }
