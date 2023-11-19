@@ -1,4 +1,4 @@
-package com.example.AutoPartsOnlineShopApi.entity.partcategory;
+package com.example.AutoPartsOnlineShopApi.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

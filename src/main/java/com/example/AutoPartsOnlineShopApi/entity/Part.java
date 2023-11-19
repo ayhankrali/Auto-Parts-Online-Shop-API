@@ -1,4 +1,4 @@
-package com.example.AutoPartsOnlineShopApi.entity.partcategory;
+package com.example.AutoPartsOnlineShopApi.entity;
 
 import ch.qos.logback.core.model.Model;
 import jakarta.persistence.*;
