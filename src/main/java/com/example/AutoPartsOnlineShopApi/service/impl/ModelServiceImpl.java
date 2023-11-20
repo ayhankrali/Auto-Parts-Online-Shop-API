@@ -1,5 +1,6 @@
 package com.example.AutoPartsOnlineShopApi.service.impl;
 
+import com.example.AutoPartsOnlineShopApi.entity.Make;
 import com.example.AutoPartsOnlineShopApi.entity.Model;
 import com.example.AutoPartsOnlineShopApi.repository.ModelRepository;
 import com.example.AutoPartsOnlineShopApi.service.ModelService;
@@ -29,7 +30,7 @@ public class ModelServiceImpl implements ModelService {
     }
 
     @Override
-    public List<Model> getModelsByMake(String make) {
+    public List<Model> getModelsByMake(Make make) {
         return modelRepository.findByMake(make);
     }
 

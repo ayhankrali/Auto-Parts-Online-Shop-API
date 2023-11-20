@@ -1,6 +1,7 @@
 package com.example.AutoPartsOnlineShopApi.controller;
 
 
+import com.example.AutoPartsOnlineShopApi.entity.Make;
 import com.example.AutoPartsOnlineShopApi.entity.Model;
 import com.example.AutoPartsOnlineShopApi.service.ModelService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ public class ModelController {
     }
 
     @GetMapping("/{make}")
-    public List<Model> getModelsByMake(@PathVariable String make) {
+    public List<Model> getModelsByMake(@PathVariable Make make) {
         return modelService.getModelsByMake(make);
     }
 }
