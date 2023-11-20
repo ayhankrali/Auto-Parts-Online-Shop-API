@@ -1,6 +1,7 @@
 package com.example.AutoPartsOnlineShopApi.service.impl;
 
 import com.example.AutoPartsOnlineShopApi.entity.Part;
+import com.example.AutoPartsOnlineShopApi.entity.PartCategory;
 import com.example.AutoPartsOnlineShopApi.repository.PartRepository;
 import com.example.AutoPartsOnlineShopApi.service.PartService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,9 +30,10 @@ public class PartServiceImpl implements PartService {
         return partRepository.findById(id);
     }
 
+
     @Override
-    public List<Part> getPartsByCategoryAndModel(String category, String model) {
-        return partRepository.findByCategoryAndCompatibleModelsName(category, model);
+    public List<Part> getPartsByCategoryAndModel(PartCategory category, String model) {
+        return partRepository.findByCategoryAndCompatibleModelsName(category,model);
     }
 
     @Override

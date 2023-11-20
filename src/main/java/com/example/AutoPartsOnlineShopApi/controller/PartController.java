@@ -1,6 +1,7 @@
 package com.example.AutoPartsOnlineShopApi.controller;
 
 import com.example.AutoPartsOnlineShopApi.entity.Part;
+import com.example.AutoPartsOnlineShopApi.entity.PartCategory;
 import com.example.AutoPartsOnlineShopApi.service.PartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -26,14 +27,13 @@ public class PartController {
 
     @GetMapping("/{category}/{model}")
     public List<Part> getPartsByCategoryAndModel(
-            @PathVariable String category,
+            @PathVariable PartCategory category,
             @PathVariable(required = false) String model) {
         return partService.getPartsByCategoryAndModel(category, model);
     }
 
     @GetMapping("/search")
     public List<Part> searchPartsByName(@RequestParam String name) {
-        // Implement logic to search parts by the specified name
         return partService.searchPartsByName(name);
     }
 }
