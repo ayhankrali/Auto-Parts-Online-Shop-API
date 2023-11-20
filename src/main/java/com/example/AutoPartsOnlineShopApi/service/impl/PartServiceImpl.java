@@ -30,7 +30,6 @@ public class PartServiceImpl implements PartService {
         return partRepository.findById(id);
     }
 
-
     @Override
     public List<Part> getPartsByCategoryAndModel(PartCategory category, String model) {
         return partRepository.findByCategoryAndCompatibleModelsName(category,model);
