@@ -28,4 +28,9 @@ public class ModelServiceImpl implements ModelService {
         return modelRepository.findById(id);
     }
 
+    @Override
+    public List<Model> getModelsByMake(String make) {
+        return modelRepository.findByMake(make);
+    }
+
 }

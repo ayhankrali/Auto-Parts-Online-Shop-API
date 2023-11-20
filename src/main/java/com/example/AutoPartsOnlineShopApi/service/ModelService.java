@@ -8,4 +8,5 @@ import java.util.Optional;
 public interface ModelService {
     List<Model> getAllModels();
     Optional<Model> getById(Long id);
+    List<Model> getModelsByMake(String make);
 }

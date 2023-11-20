@@ -29,5 +29,15 @@ public class PartServiceImpl implements PartService {
         return partRepository.findById(id);
     }
 
-    // Implement other methods as needed
+    @Override
+    public List<Part> getPartsByCategoryAndModel(String category, String model) {
+        return partRepository.findByCategoryAndCompatibleModelsName(category, model);
+    }
+
+    @Override
+    public List<Part> searchPartsByName(String name) {
+        return partRepository.findByNameContainingIgnoreCase(name);
+    }
+
+
 }

@@ -9,4 +9,8 @@ public interface PartService {
     List<Part> getAllParts();
 
     Optional<Part> getById(Long id);
+
+    List<Part> getPartsByCategoryAndModel(String category, String model);
+
+    List<Part> searchPartsByName(String name);
 }
