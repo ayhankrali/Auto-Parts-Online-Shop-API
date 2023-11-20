@@ -2,7 +2,6 @@ package com.example.AutoPartsOnlineShopApi.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.util.Set;
 
 @Getter

@@ -1,9 +1,9 @@
 package com.example.AutoPartsOnlineShopApi.entity;
 
-import ch.qos.logback.core.model.Model;
+
+
 import jakarta.persistence.*;
 import lombok.*;
-import org.antlr.v4.runtime.misc.NotNull;
 
 import java.util.Set;
 
@@ -57,7 +57,6 @@ public class Part {
             name = "part_model",
             joinColumns = @JoinColumn(name = "part_id"),
             inverseJoinColumns = @JoinColumn(name = "model_id"))
-    @NonNull
     private Set<Model> compatibleModels;
 
 

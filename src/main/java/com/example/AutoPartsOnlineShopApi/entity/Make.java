@@ -2,9 +2,9 @@ package com.example.AutoPartsOnlineShopApi.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.antlr.v4.runtime.misc.NotNull;
 
 import java.util.Set;
+
 
 @Getter
 @Setter

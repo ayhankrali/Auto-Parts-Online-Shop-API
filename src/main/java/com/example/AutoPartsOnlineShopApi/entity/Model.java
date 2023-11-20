@@ -2,8 +2,6 @@ package com.example.AutoPartsOnlineShopApi.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.antlr.v4.runtime.misc.NotNull;
-
 import java.util.Set;
 
 @Getter
@@ -39,10 +37,8 @@ public class Model {
 
     @ManyToOne
     @JoinColumn(name = "make_id")
-    @NonNull
     private Make make;
 
     @ManyToMany(mappedBy = "compatibleModels")
-    @NonNull
     private Set<Part> compatibleParts;
 }
