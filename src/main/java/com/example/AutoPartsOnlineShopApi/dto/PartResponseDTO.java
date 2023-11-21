@@ -24,5 +24,4 @@ public class PartResponseDTO {
     private PartCategory category;
     private Set<Model> compatibleModels;
 
-
 }
