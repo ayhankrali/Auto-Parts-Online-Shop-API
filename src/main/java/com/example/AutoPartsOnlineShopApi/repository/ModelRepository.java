@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface ModelRepository extends JpaRepository<Model,Long> {
     List<Model> findByMake(Make make);
+
+    Model findByName(String camry);
 }
