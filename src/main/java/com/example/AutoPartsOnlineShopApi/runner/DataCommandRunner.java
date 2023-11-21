@@ -13,21 +13,21 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.HashSet;
-import java.util.Set;
+
 
 @Component
-public class DataInitializer implements CommandLineRunner {
-
+public class DataCommandRunner implements CommandLineRunner {
+    // Preserving single responsibility, consolidating runners due to conflicts preventing separation.
     private final MakeRepository makeRepository;
     private final ModelRepository modelRepository;
     private final PartCategoryRepository partCategoryRepository;
     private final PartRepository partRepository;
 
     @Autowired
-    public DataInitializer(MakeRepository makeRepository,
-                           ModelRepository modelRepository,
-                           PartCategoryRepository partCategoryRepository,
-                           PartRepository partRepository) {
+    public DataCommandRunner(MakeRepository makeRepository,
+                             ModelRepository modelRepository,
+                             PartCategoryRepository partCategoryRepository,
+                             PartRepository partRepository) {
         this.makeRepository = makeRepository;
         this.modelRepository = modelRepository;
         this.partCategoryRepository = partCategoryRepository;
@@ -99,7 +99,7 @@ public class DataInitializer implements CommandLineRunner {
 
 
         partRepository.save(part);
+
+
     }
-
-
 }

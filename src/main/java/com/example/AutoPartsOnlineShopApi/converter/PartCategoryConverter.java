@@ -1,5 +1,6 @@
 package com.example.AutoPartsOnlineShopApi.converter;
 
+import com.example.AutoPartsOnlineShopApi.dto.PartCategoryRequestDTO;
 import com.example.AutoPartsOnlineShopApi.dto.PartCategoryResponseDTO;
 import com.example.AutoPartsOnlineShopApi.entity.PartCategory;
 import com.example.AutoPartsOnlineShopApi.service.PartCategoryService;
@@ -11,6 +12,19 @@ public class PartCategoryConverter {
 
     public PartCategoryConverter(PartCategoryService partCategoryService) {
         this.partCategoryService = partCategoryService;
+    }
+
+
+    public PartCategory toEntity(PartCategoryRequestDTO requestDTO) {
+        return PartCategory.builder()
+                .name(requestDTO.getName())
+                .description(requestDTO.getDescription())
+                .manufacturer(requestDTO.getManufacturer())
+                .material(requestDTO.getMaterial())
+                .isOEM(requestDTO.isOEM())
+                .weight(requestDTO.getWeight())
+                .countryOfOrigin(requestDTO.getCountryOfOrigin())
+                .build();
     }
 
     public PartCategoryResponseDTO toDto(PartCategory partCategory) {
