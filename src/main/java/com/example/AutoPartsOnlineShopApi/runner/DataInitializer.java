@@ -96,14 +96,10 @@ public class DataInitializer implements CommandLineRunner {
         part.setAvailable(true);
         part.setQuantityInStock(100);
         part.setCompatibilityInfo("Fits various models");
-        part.setCategory(partCategoryRepository.findByName("Engine Parts"));
 
-        // Create a Set of compatible Models
-        Set<Model> compatibleModels = new HashSet<>();
-        compatibleModels.add(modelRepository.findByName("Camry"));
-        part.setCompatibleModels(compatibleModels);
 
-        // Save the Part entity to the database
         partRepository.save(part);
     }
+
+
 }
