@@ -2,7 +2,6 @@ package com.example.AutoPartsOnlineShopApi.controller;
 
 import com.example.AutoPartsOnlineShopApi.entity.User;
 import com.example.AutoPartsOnlineShopApi.repository.UserRepository;
-import com.example.AutoPartsOnlineShopApi.security.SecurityConstants;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -10,8 +9,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
-
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
@@ -67,5 +64,5 @@ class AuthControllerTest {
         verify(userRepository, never()).save(user);
     }
 
-    // Similar tests for login can be written
+
 }

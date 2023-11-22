@@ -42,4 +42,8 @@ public class Make {
     @OneToMany(mappedBy = "make")
     private Set<Model> models;
 
+    public Make(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }
