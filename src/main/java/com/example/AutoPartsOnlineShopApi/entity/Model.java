@@ -41,4 +41,10 @@ public class Model {
 
     @ManyToMany(mappedBy = "compatibleModels")
     private Set<Part> compatibleParts;
+
+    public Model(Long id, String name) {
+        this.id = id;
+        this.name = name ;
+        // Initialize other fields if needed
+    }
 }

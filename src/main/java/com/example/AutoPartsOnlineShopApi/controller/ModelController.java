@@ -28,9 +28,6 @@ public class ModelController {
         return modelService.getAllModels();
     }
 
-    @GetMapping("/{make}")
-    public List<Model> getModelsByMake(@PathVariable Make make) {
-        return modelService.getModelsByMake(make);
-    }
+
 }
 
