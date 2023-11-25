@@ -1,6 +1,6 @@
 package com.example.AutoPartsOnlineShopApi.security.jwt;
 
-import com.example.AutoPartsOnlineShopApi.service.UserService;
+import com.example.AutoPartsOnlineShopApi.service.user.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.security.authentication.AuthenticationManager;
