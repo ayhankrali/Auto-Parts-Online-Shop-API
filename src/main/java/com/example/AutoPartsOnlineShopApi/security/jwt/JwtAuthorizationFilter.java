@@ -1,6 +1,6 @@
 package com.example.AutoPartsOnlineShopApi.security.jwt;
 
-import com.example.AutoPartsOnlineShopApi.security.SecurityConstants;
+import com.example.AutoPartsOnlineShopApi.security.constant.SecurityConstants;
 import io.jsonwebtoken.Jwts;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

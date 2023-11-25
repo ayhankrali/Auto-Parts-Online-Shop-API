@@ -1,4 +1,4 @@
-package com.example.AutoPartsOnlineShopApi.security;
+package com.example.AutoPartsOnlineShopApi.security.constant;
 
 public class SecurityConstants {
     public static final String SECRET = "SecretKeyToGenerateJWTs";

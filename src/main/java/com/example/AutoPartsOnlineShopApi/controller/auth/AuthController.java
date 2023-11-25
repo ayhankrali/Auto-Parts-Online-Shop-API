@@ -2,7 +2,7 @@ package com.example.AutoPartsOnlineShopApi.controller.auth;
 
 import com.example.AutoPartsOnlineShopApi.entity.user.User;
 import com.example.AutoPartsOnlineShopApi.repository.user.UserRepository;
-import com.example.AutoPartsOnlineShopApi.security.SecurityConstants;
+import com.example.AutoPartsOnlineShopApi.security.constant.SecurityConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;

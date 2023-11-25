@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/online
-    username: root
-    password: qqqq
+    url: jdbc:mysql://127.0.0.1:3306/
+    username:
+    password:
   jpa:
     hibernate:
       ddl-auto: update
