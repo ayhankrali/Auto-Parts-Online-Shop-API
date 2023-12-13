@@ -4,46 +4,54 @@ import com.example.AutoPartsOnlineShopApi.service.user.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
 import java.util.Collections;
 
 @Component
-public class JwtAuthentication extends UsernamePasswordAuthenticationFilter {
+public class JwtAuthentication extends AbstractAuthenticationProcessingFilter {
 
-    private final AuthenticationManager authenticationManager;
-    private UserService userService ;
+    private final UserService userService;
 
-
-    public JwtAuthentication(AuthenticationManager authenticationManager) {
-        this.authenticationManager = authenticationManager;
-        setFilterProcessesUrl("auth/login");
+    public JwtAuthentication(AuthenticationManager authenticationManager, UserService userService) {
+        super("auth/login");
+        this.userService = userService;
+        setAuthenticationManager(authenticationManager);
     }
 
-
+   
+    
     @Override
-    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            // Directly get username and password from request parameters
-            String username = request.getParameter("username");
-            String password = request.getParameter("password");
+    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException, IOException {
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
 
-            // Perform authentication
-            return authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(
-                            username,
-                            password,
-                            Collections.emptyList())
-            );
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        if (username == null || username.trim().isEmpty() || password == null || password.trim().isEmpty()) {
+            // Handle empty or invalid credentials
+            throw new BadCredentialsException("Invalid username or password");
         }
 
+        // Validate credentials and perform authentication
+        try {
+            Authentication authentication = getAuthenticationManager().authenticate(
+                    new UsernamePasswordAuthenticationToken(username, password, Collections.emptyList())
+            );
 
+           
+            return authentication;
+        } catch (AuthenticationException authEx) {
+         
+            throw new BadCredentialsException("Authentication failed", authEx);
+        }
     }
+
+    
 }
 
 

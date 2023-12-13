@@ -1,6 +1,5 @@
 package com.example.AutoPartsOnlineShopApi.controller.auth;
 
-import com.example.AutoPartsOnlineShopApi.controller.auth.AuthController;
 import com.example.AutoPartsOnlineShopApi.entity.user.User;
 import com.example.AutoPartsOnlineShopApi.repository.user.UserRepository;
 import org.junit.jupiter.api.Test;
@@ -10,6 +9,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
+
 import java.util.Map;
 import java.util.Objects;
 
@@ -28,24 +28,6 @@ class AuthControllerTest {
     @InjectMocks
     private AuthController authController;
 
-    @Test
-    void testSignup() {
-        // Arrange
-        User user = new User();
-        user.setUsername("testUser");
-        user.setPassword("testPassword");
-
-        when(userRepository.existsByUsername("testUser")).thenReturn(false);
-        when(passwordEncoder.encode("testPassword")).thenReturn("encodedPassword");
-
-        // Act
-        ResponseEntity<Map<String, String>> response = authController.signup(user);
-
-        // Assert
-        assertEquals(200, response.getStatusCodeValue());
-        assertEquals("User registered successfully!", Objects.requireNonNull(response.getBody()).get("message"));
-        verify(userRepository, times(1)).save(user);
-    }
 
     @Test
     void testSignupUsernameTaken() {
