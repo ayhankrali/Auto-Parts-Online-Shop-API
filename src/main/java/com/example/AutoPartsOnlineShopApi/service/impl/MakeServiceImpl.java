@@ -1,8 +1,8 @@
-package com.example.AutoPartsOnlineShopApi.service.make.impl;
+package com.example.AutoPartsOnlineShopApi.service.impl;
 
 import com.example.AutoPartsOnlineShopApi.entity.make.Make;
 import com.example.AutoPartsOnlineShopApi.repository.make.MakeRepository;
-import com.example.AutoPartsOnlineShopApi.service.make.MakeService;
+import com.example.AutoPartsOnlineShopApi.service.MakeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

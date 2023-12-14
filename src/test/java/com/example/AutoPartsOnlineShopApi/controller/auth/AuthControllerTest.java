@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
 
 import java.util.Map;
 import java.util.Objects;
@@ -58,8 +59,9 @@ public class AuthControllerTest {
     public void testFailedLogin() {
         User loginUser = new User("username", "password");
 
+
         when(authenticationManager.authenticate(any()))
-                .thenThrow(new RuntimeException("Invalid credentials"));
+                .thenThrow(new AuthenticationException("Invalid credentials") {});
 
         ResponseEntity<Map<String, String>> response = authController.login(loginUser);
 
