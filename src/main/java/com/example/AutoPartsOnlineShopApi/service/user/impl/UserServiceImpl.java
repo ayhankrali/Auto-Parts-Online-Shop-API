@@ -27,7 +27,16 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Override
     public User save(User user) {
+        // Check if the password is null
+        if (user.getPassword() == null) {
+            // Handle the null password case, e.g., throw an exception
+            throw new IllegalArgumentException("Password cannot be null");
+        }
+
+        // Encode the password
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+
+        // Save the user
         return userRepository.save(user);
     }
 
@@ -57,11 +66,17 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<User> userOptional = userRepository.findByUsername(username);
-        User user = userOptional.orElseThrow(() -> new UsernameNotFoundException("Invalid username or password."));
+
+        if (userOptional.isEmpty()) {
+            throw new UsernameNotFoundException("Invalid username or password.");
+        }
+
+        User user = userOptional.get();
 
         return org.springframework.security.core.userdetails.User.builder()
                 .username(user.getUsername())
                 .password(user.getPassword())
                 .build();
     }
+
 }
