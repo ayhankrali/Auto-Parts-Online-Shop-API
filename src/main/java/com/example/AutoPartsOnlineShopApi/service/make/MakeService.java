@@ -1,4 +1,4 @@
-package com.example.AutoPartsOnlineShopApi.service;
+package com.example.AutoPartsOnlineShopApi.service.make;
 
 import com.example.AutoPartsOnlineShopApi.entity.make.Make;
 

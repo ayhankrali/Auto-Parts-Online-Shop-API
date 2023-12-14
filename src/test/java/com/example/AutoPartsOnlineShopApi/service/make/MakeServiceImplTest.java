@@ -2,7 +2,7 @@ package com.example.AutoPartsOnlineShopApi.service.make;
 
 import com.example.AutoPartsOnlineShopApi.entity.make.Make;
 import com.example.AutoPartsOnlineShopApi.repository.make.MakeRepository;
-import com.example.AutoPartsOnlineShopApi.service.impl.MakeServiceImpl;
+import com.example.AutoPartsOnlineShopApi.service.make.impl.MakeServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

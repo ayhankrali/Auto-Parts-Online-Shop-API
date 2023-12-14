@@ -3,7 +3,7 @@ package com.example.AutoPartsOnlineShopApi.converter.make;
 import com.example.AutoPartsOnlineShopApi.dto.make.MakeRequestDTO;
 import com.example.AutoPartsOnlineShopApi.dto.make.MakeResponseDTO;
 import com.example.AutoPartsOnlineShopApi.entity.make.Make;
-import com.example.AutoPartsOnlineShopApi.service.MakeService;
+import com.example.AutoPartsOnlineShopApi.service.make.MakeService;
 import org.springframework.stereotype.Component;
 
 @Component

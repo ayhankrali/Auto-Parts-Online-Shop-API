@@ -1,7 +1,7 @@
 package com.example.AutoPartsOnlineShopApi.controller.make;
 
 import com.example.AutoPartsOnlineShopApi.entity.make.Make;
-import com.example.AutoPartsOnlineShopApi.service.MakeService;
+import com.example.AutoPartsOnlineShopApi.service.make.MakeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
