@@ -49,4 +49,7 @@ public class Model {
         this.name = name ;
         // Initialize other fields if needed
     }
+
+    public Model(String accord) {
+    }
 }

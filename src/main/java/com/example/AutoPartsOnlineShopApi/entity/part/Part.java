@@ -1,7 +1,6 @@
 package com.example.AutoPartsOnlineShopApi.entity.part;
 
 
-
 import com.example.AutoPartsOnlineShopApi.entity.model.Model;
 import com.example.AutoPartsOnlineShopApi.entity.partcategory.PartCategory;
 import jakarta.persistence.*;
@@ -62,4 +61,31 @@ public class Part {
     private Set<Model> compatibleModels;
 
 
+    // Custom Constructors
+
+    // Constructor for a part with only the name and price
+    public Part(String name, Double price) {
+        this.name = name;
+        this.price = price;
+    }
+
+    // Constructor for a part with all fields except the ID
+    public Part(String name, String description, Double price, String manufacturer, String material,
+                boolean isAvailable, Integer quantityInStock, String compatibilityInfo,
+                PartCategory category, Set<Model> compatibleModels) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.manufacturer = manufacturer;
+        this.material = material;
+        this.isAvailable = isAvailable;
+        this.quantityInStock = quantityInStock;
+        this.compatibilityInfo = compatibilityInfo;
+        this.category = category;
+        this.compatibleModels = compatibleModels;
+    }
+
+    public Part(String name, String engine) {
+
+    }
 }
