@@ -28,4 +28,7 @@ public class User {
     @NotNull
     @Column(name = "role")
     private String role;
+
+    public User(String testUser, String testPassword) {
+    }
 }

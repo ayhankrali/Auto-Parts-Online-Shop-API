@@ -3,8 +3,14 @@ package com.example.AutoPartsOnlineShopApi.controller.auth;
 import com.example.AutoPartsOnlineShopApi.entity.user.User;
 import com.example.AutoPartsOnlineShopApi.repository.user.UserRepository;
 import com.example.AutoPartsOnlineShopApi.security.constant.SecurityConstants;
+import com.example.AutoPartsOnlineShopApi.security.jwt.JwtTokenProvider;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,6 +25,12 @@ import java.util.Map;
 public class AuthController {
 
     @Autowired
+    private AuthenticationManager authenticationManager;
+
+    @Autowired
+    private JwtTokenProvider jwtTokenProvider;
+
+    @Autowired
     private UserRepository userRepository;
 
     @Autowired
@@ -27,11 +39,10 @@ public class AuthController {
     // User registration endpoint
     @PostMapping("/signup")
     public ResponseEntity<Map<String, String>> signup(@RequestBody User user) {
-        // Check if the username is already taken
         if (userRepository.existsByUsername(user.getUsername())) {
             Map<String, String> response = new HashMap<>();
             response.put("error", "Username is already taken");
-            return ResponseEntity.badRequest().body(response);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
         }
 
         // Encode the password and save the user to the database
@@ -45,10 +56,14 @@ public class AuthController {
 
     // User login endpoint
     @PostMapping("/login")
-    public ResponseEntity<Map<String, String>> login(@RequestBody User user) {
-        // TODO: Implement user login logic, generate and return JWT token
+    public ResponseEntity<Map<String, String>> login(@RequestBody User loginUser) {
+        Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(loginUser.getUsername(), loginUser.getPassword())
+        );
 
-        String token = "your_generated_jwt_token";
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+
+        String token = jwtTokenProvider.generateToken(authentication);
 
         Map<String, String> response = new HashMap<>();
         response.put(SecurityConstants.HEADER_STRING, SecurityConstants.TOKEN_PREFIX + token);

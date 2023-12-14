@@ -1,6 +1,5 @@
 package com.example.AutoPartsOnlineShopApi.controller.model;
 
-import com.example.AutoPartsOnlineShopApi.controller.model.ModelController;
 import com.example.AutoPartsOnlineShopApi.entity.model.Model;
 import com.example.AutoPartsOnlineShopApi.service.model.ModelService;
 import org.junit.jupiter.api.Test;
@@ -16,7 +15,8 @@ import java.util.List;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(MockitoExtension.class)
 public class ModelControllerTest {
@@ -52,8 +52,5 @@ public class ModelControllerTest {
                 .andExpect(jsonPath("$").isArray())
                 .andExpect(jsonPath("$.length()").value(models.size()));
     }
-
-
-
 
 }
