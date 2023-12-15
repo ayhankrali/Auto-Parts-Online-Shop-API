@@ -42,6 +42,7 @@ public class ModelControllerTest {
                 .andExpect(jsonPath("$").isArray())
                 .andExpect(jsonPath("$.length()").value(models.size()));
     }
+
     @Test
     @DisplayName("GET /models should return all models")
     public void getAllModels_shouldReturnAllModels() throws Exception {

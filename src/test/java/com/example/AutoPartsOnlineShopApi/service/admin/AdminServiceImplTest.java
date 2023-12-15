@@ -58,9 +58,7 @@ class AdminServiceImplTest {
 
         when(makeRepository.findById(invalidMakeId)).thenReturn(Optional.empty());
 
-        jakarta.persistence.EntityNotFoundException exception = assertThrows(jakarta.persistence
-                .EntityNotFoundException
-                .class, () -> {
+        jakarta.persistence.EntityNotFoundException exception = assertThrows(jakarta.persistence.EntityNotFoundException.class, () -> {
             Make result = adminService.getMakeById(invalidMakeId);
             assertNull(result);
         });
