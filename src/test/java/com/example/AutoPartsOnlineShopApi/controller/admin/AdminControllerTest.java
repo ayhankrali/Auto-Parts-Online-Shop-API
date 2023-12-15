@@ -4,6 +4,7 @@ import com.example.AutoPartsOnlineShopApi.entity.make.Make;
 import com.example.AutoPartsOnlineShopApi.entity.model.Model;
 import com.example.AutoPartsOnlineShopApi.entity.part.Part;
 import com.example.AutoPartsOnlineShopApi.service.admin.AdminService;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -17,6 +18,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
+@DisplayName("Admin Controller Tests")
 public class AdminControllerTest {
     @Mock
     private AdminService adminService;
@@ -25,6 +27,7 @@ public class AdminControllerTest {
     private AdminController adminController;
 
     @Test
+    @DisplayName("GET /admin/make/{makeId} should return Make when Make exists")
     void getMakeById_ReturnsMake_WhenMakeExists() {
         long makeId = 1L;
         Make mockMake = new Make();
@@ -37,6 +40,7 @@ public class AdminControllerTest {
     }
 
     @Test
+    @DisplayName("GET /admin/model/{modelId} should return Model when Model exists")
     void getModelById_ReturnsModel_WhenModelExists() {
         long modelId = 1L;
         Model mockModel = new Model();
@@ -49,6 +53,7 @@ public class AdminControllerTest {
     }
 
     @Test
+    @DisplayName("POST /admin/make should return Created response when Make is created successfully")
     void createMake_ReturnsCreatedResponse_WhenMakeIsCreatedSuccessfully() {
         Make mockMake = new Make();
 
@@ -61,6 +66,7 @@ public class AdminControllerTest {
     }
 
     @Test
+    @DisplayName("POST /admin/part should return Created response when Part is created successfully")
     void createPart_ReturnsCreatedResponse_WhenPartIsCreatedSuccessfully() {
         Part mockPart = new Part();
 
@@ -73,6 +79,7 @@ public class AdminControllerTest {
     }
 
     @Test
+    @DisplayName("PUT /admin/part/{partId} should return OK response when Part is updated successfully")
     void updatePart_ReturnsOkResponse_WhenPartIsUpdatedSuccessfully() {
         long partId = 1L;
         Part mockPart = new Part();
@@ -86,6 +93,7 @@ public class AdminControllerTest {
     }
 
     @Test
+    @DisplayName("DELETE /admin/part/{partId} should return OK response when Part is deleted successfully")
     void deletePart_ReturnsOkResponse_WhenPartIsDeletedSuccessfully() {
         long partId = 1L;
 
@@ -98,6 +106,7 @@ public class AdminControllerTest {
     }
 
     @Test
+    @DisplayName("PUT /admin/model/{modelId} should return OK response when Model is updated successfully")
     void updateModel_ReturnsOkResponse_WhenModelIsUpdatedSuccessfully() {
         long modelId = 1L;
         Model mockModel = new Model();
@@ -112,6 +121,7 @@ public class AdminControllerTest {
     }
 
     @Test
+    @DisplayName("DELETE /admin/model/{modelId} should return OK response when Model is deleted successfully")
     void deleteModel_ReturnsOkResponse_WhenModelIsDeletedSuccessfully() {
         long modelId = 1L;
 

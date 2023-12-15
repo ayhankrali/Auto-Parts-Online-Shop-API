@@ -3,10 +3,13 @@ package com.example.AutoPartsOnlineShopApi.controller.auth;
 import com.example.AutoPartsOnlineShopApi.entity.user.User;
 import com.example.AutoPartsOnlineShopApi.security.jwt.JwtTokenProvider;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -19,7 +22,8 @@ import java.util.Objects;
 import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
-
+@ExtendWith(MockitoExtension.class)
+@DisplayName("AuthController Tests")
 public class AuthControllerTest {
 
     @InjectMocks
@@ -36,7 +40,9 @@ public class AuthControllerTest {
         MockitoAnnotations.openMocks(this);
     }
 
+
     @Test
+    @DisplayName("Successful Login")
     public void testSuccessfulLogin() {
         User loginUser = new User("username", "password");
         Authentication authentication = mock(Authentication.class);
@@ -56,7 +62,9 @@ public class AuthControllerTest {
         verify(jwtTokenProvider, times(1)).generateToken(authentication);
     }
 
+
     @Test
+    @DisplayName("Failed Login")
     void testFailedLogin() {
         when(authenticationManager.authenticate(any()))
                 .thenThrow(new AuthenticationException("Invalid credentials") {

@@ -3,6 +3,7 @@ package com.example.AutoPartsOnlineShopApi.controller.part;
 import com.example.AutoPartsOnlineShopApi.entity.part.Part;
 import com.example.AutoPartsOnlineShopApi.entity.partcategory.PartCategory;
 import com.example.AutoPartsOnlineShopApi.service.part.PartService;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -20,6 +21,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(MockitoExtension.class)
+@DisplayName("Part Controller Tests")
 public class PartControllerTest {
 
     @Mock
@@ -30,6 +32,7 @@ public class PartControllerTest {
 
 
     @Test
+    @DisplayName("GET /parts should return all parts")
     public void getAllParts_shouldReturnAllParts() throws Exception {
         // Arrange
         List<Part> parts = Arrays.asList(
@@ -48,6 +51,7 @@ public class PartControllerTest {
 
 
     @Test
+    @DisplayName("GET /parts/search should return matching parts by name")
     public void searchPartsByName_shouldReturnMatchingParts() throws Exception {
         // Arrange
         String partName = "PartName";

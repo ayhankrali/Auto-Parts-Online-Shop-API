@@ -4,6 +4,7 @@ import com.example.AutoPartsOnlineShopApi.entity.part.Part;
 import com.example.AutoPartsOnlineShopApi.entity.partcategory.PartCategory;
 import com.example.AutoPartsOnlineShopApi.repository.part.PartRepository;
 import com.example.AutoPartsOnlineShopApi.service.part.impl.PartServiceImpl;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -19,6 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
+@DisplayName("Tests for PartService")
 class PartServiceImplTest {
 
     @Mock
@@ -29,6 +31,7 @@ class PartServiceImplTest {
 
 
     @Test
+    @DisplayName("Get All Parts - Success")
     void testGetAllParts() {
         // Arrange
         List<Part> mockParts = Collections.singletonList(new Part());
@@ -44,6 +47,7 @@ class PartServiceImplTest {
     }
 
     @Test
+    @DisplayName("Get Part By Id - Success")
     void testGetById() {
         // Arrange
         Long id = 1L;
@@ -60,6 +64,7 @@ class PartServiceImplTest {
     }
 
     @Test
+    @DisplayName("Get Parts By Category And Model - Success")
     void testGetPartsByCategoryAndModel() {
         // Arrange
         PartCategory mockCategory = new PartCategory();
@@ -77,6 +82,7 @@ class PartServiceImplTest {
     }
 
     @Test
+    @DisplayName("Search Parts By Name - Success")
     void testSearchPartsByName() {
         // Arrange
         String partName = "MockPart";

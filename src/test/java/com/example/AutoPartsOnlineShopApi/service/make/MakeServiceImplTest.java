@@ -3,6 +3,7 @@ package com.example.AutoPartsOnlineShopApi.service.make;
 import com.example.AutoPartsOnlineShopApi.entity.make.Make;
 import com.example.AutoPartsOnlineShopApi.repository.make.MakeRepository;
 import com.example.AutoPartsOnlineShopApi.service.make.impl.MakeServiceImpl;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -18,6 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
+@DisplayName("Tests for MakeService")
 class MakeServiceImplTest {
 
     @Mock
@@ -28,6 +30,7 @@ class MakeServiceImplTest {
 
 
     @Test
+    @DisplayName("Get All Makes - Success")
     void testGetAllMakes() {
         // Arrange
         List<Make> mockMakes = Collections.singletonList(new Make());
@@ -43,6 +46,7 @@ class MakeServiceImplTest {
     }
 
     @Test
+    @DisplayName("Get Make By Id - Success")
     void testGetById() {
         // Arrange
         Long id = 1L;

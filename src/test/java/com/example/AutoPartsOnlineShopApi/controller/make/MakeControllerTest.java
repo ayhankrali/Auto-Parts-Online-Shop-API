@@ -2,6 +2,7 @@ package com.example.AutoPartsOnlineShopApi.controller.make;
 
 import com.example.AutoPartsOnlineShopApi.entity.make.Make;
 import com.example.AutoPartsOnlineShopApi.service.make.MakeService;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -15,9 +16,11 @@ import java.util.List;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(MockitoExtension.class)
+@DisplayName("Make Controller Tests")
 public class MakeControllerTest {
 
     @Mock
@@ -29,6 +32,7 @@ public class MakeControllerTest {
     private MockMvc mockMvc;
 
     @Test
+    @DisplayName("GET /makes should return a list of makes")
     void getAllMakes_shouldReturnListOfMakes() throws Exception {
         // Arrange
         List<Make> makes = Arrays.asList(new Make(1L, "Make1"), new Make(2L, "Make2"));

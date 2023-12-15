@@ -3,6 +3,7 @@ package com.example.AutoPartsOnlineShopApi.service.partcategory;
 import com.example.AutoPartsOnlineShopApi.entity.partcategory.PartCategory;
 import com.example.AutoPartsOnlineShopApi.repository.partcategory.PartCategoryRepository;
 import com.example.AutoPartsOnlineShopApi.service.partcategory.impl.PartCategoryServiceImpl;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -18,6 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
+@DisplayName("Tests for PartCategoryService")
 class PartCategoryServiceImplTest {
 
     @Mock
@@ -28,6 +30,7 @@ class PartCategoryServiceImplTest {
 
 
     @Test
+    @DisplayName("Get All Part Categories - Success")
     void testGetAllPartCategories() {
         // Arrange
         List<PartCategory> mockCategories = Collections.singletonList(new PartCategory());
@@ -43,6 +46,7 @@ class PartCategoryServiceImplTest {
     }
 
     @Test
+    @DisplayName("Get Part Category By Id - Success")
     void testGetById() {
         // Arrange
         Long id = 1L;

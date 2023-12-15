@@ -7,6 +7,7 @@ import com.example.AutoPartsOnlineShopApi.repository.make.MakeRepository;
 import com.example.AutoPartsOnlineShopApi.repository.model.ModelRepository;
 import com.example.AutoPartsOnlineShopApi.repository.part.PartRepository;
 import com.example.AutoPartsOnlineShopApi.service.admin.impl.AdminServiceImpl;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -19,6 +20,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
+@DisplayName("Tests for AdminService")
 class AdminServiceImplTest {
 
     @Mock
@@ -35,6 +37,7 @@ class AdminServiceImplTest {
 
 
     @Test
+    @DisplayName("Get Make By Id - Valid Id - Returns Make")
     void getMakeById_ValidId_ReturnsMake() {
         Long makeId = 1L;
         Make mockMake = new Make(makeId, "Toyota");
@@ -49,6 +52,7 @@ class AdminServiceImplTest {
     }
 
     @Test
+    @DisplayName("Get Make By Id - Invalid Id - Throws EntityNotFoundException")
     void getMakeById_InvalidId_ReturnsNull() {
         Long invalidMakeId = 2L;
 
@@ -66,6 +70,7 @@ class AdminServiceImplTest {
 
 
     @Test
+    @DisplayName("Create Make - Valid Make - Save Make")
     void createMake_ValidMake_SaveMake() {
         Make newMake = new Make(null, "Honda");
 
@@ -75,11 +80,13 @@ class AdminServiceImplTest {
     }
 
     @Test
+    @DisplayName("Create Make - Null Make - Throws NullPointerException")
     void createMake_NullMake_ThrowsNullPointerException() {
         assertThrows(NullPointerException.class, () -> adminService.createMake(null));
     }
 
     @Test
+    @DisplayName("Create Model - Valid Model - Save Model")
     void createModel_ValidModel_SaveModel() {
         Model newModel = new Model(null, "Accord");
 
@@ -89,11 +96,13 @@ class AdminServiceImplTest {
     }
 
     @Test
+    @DisplayName("Create Model - Null Model - Throws NullPointerException")
     void createModel_NullModel_ThrowsNullPointerException() {
         assertThrows(NullPointerException.class, () -> adminService.createModel(null));
     }
 
     @Test
+    @DisplayName("Update Make - Valid Id and Make - Update Make")
     void updateMake_ValidIdAndMake_UpdateMake() {
         Long makeId = 1L;
         Make updatedMake = new Make(makeId, "UpdatedMake");
@@ -107,6 +116,7 @@ class AdminServiceImplTest {
     }
 
     @Test
+    @DisplayName("Update Make - Invalid Id - Does Not Update Make")
     void updateMake_InvalidId_DoesNotUpdateMake() {
         // Arrange
         Long invalidMakeId = 2L;
@@ -124,6 +134,7 @@ class AdminServiceImplTest {
 
 
     @Test
+    @DisplayName("Delete Make - Valid Id - Delete Make")
     void deleteMake_ValidId_DeleteMake() {
         Long makeId = 1L;
 
@@ -133,6 +144,7 @@ class AdminServiceImplTest {
     }
 
     @Test
+    @DisplayName("Delete Model - Valid Id - Delete Model")
     void deleteModel_ValidId_DeleteModel() {
         Long modelId = 1L;
 
@@ -142,6 +154,7 @@ class AdminServiceImplTest {
     }
 
     @Test
+    @DisplayName("Create Part - Valid Part - Save Part")
     void createPart_ValidPart_SavePart() {
         Part newPart = new Part(null, "Engine");
 
@@ -151,11 +164,13 @@ class AdminServiceImplTest {
     }
 
     @Test
+    @DisplayName("Create Part - Null Part - Throws NullPointerException")
     void createPart_NullPart_ThrowsNullPointerException() {
         assertThrows(NullPointerException.class, () -> adminService.createPart(null));
     }
 
     @Test
+    @DisplayName("Update Part - Valid Id and Part - Update Part")
     void updatePart_ValidIdAndPart_UpdatePart() {
         // Arrange
         Long partId = 1L;
@@ -172,6 +187,7 @@ class AdminServiceImplTest {
     }
 
     @Test
+    @DisplayName("Update Part - Invalid Id - Does Not Update Part")
     void updatePart_InvalidId_DoesNotUpdatePart() {
         // Arrange
         Long invalidPartId = 2L;
@@ -191,6 +207,7 @@ class AdminServiceImplTest {
 
 
     @Test
+    @DisplayName("Delete Part - Valid Id - Delete Part")
     void deletePart_ValidId_DeletePart() {
         Long partId = 1L;
 

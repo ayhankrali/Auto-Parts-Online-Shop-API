@@ -4,6 +4,7 @@ import com.example.AutoPartsOnlineShopApi.entity.make.Make;
 import com.example.AutoPartsOnlineShopApi.entity.model.Model;
 import com.example.AutoPartsOnlineShopApi.repository.model.ModelRepository;
 import com.example.AutoPartsOnlineShopApi.service.model.impl.ModelServiceImpl;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -19,6 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
+@DisplayName("Tests for ModelService")
 class ModelServiceImplTest {
 
     @Mock
@@ -26,9 +28,8 @@ class ModelServiceImplTest {
 
     @InjectMocks
     private ModelServiceImpl modelService;
-
-
     @Test
+    @DisplayName("Get All Models - Success")
     void testGetAllModels() {
         // Arrange
         List<Model> mockModels = Collections.singletonList(new Model());
@@ -44,6 +45,7 @@ class ModelServiceImplTest {
     }
 
     @Test
+    @DisplayName("Get Model By Id - Success")
     void testGetById() {
         // Arrange
         Long id = 1L;
@@ -60,6 +62,7 @@ class ModelServiceImplTest {
     }
 
     @Test
+    @DisplayName("Get Models By Make - Success")
     void testGetModelsByMake() {
         // Arrange
         Make mockMake = new Make(1L, "Toyota");

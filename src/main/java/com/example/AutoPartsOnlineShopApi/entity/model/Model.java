@@ -47,9 +47,10 @@ public class Model {
     public Model(Long id, String name) {
         this.id = id;
         this.name = name ;
-        // Initialize other fields if needed
+
     }
 
     public Model(String accord) {
+
     }
 }

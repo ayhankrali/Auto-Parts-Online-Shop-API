@@ -3,6 +3,7 @@ package com.example.AutoPartsOnlineShopApi.service.user;
 import com.example.AutoPartsOnlineShopApi.entity.user.User;
 import com.example.AutoPartsOnlineShopApi.repository.user.UserRepository;
 import com.example.AutoPartsOnlineShopApi.service.user.impl.UserServiceImpl;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -18,6 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
+@DisplayName("Tests for UserService")
 class UserServiceImplTest {
 
     @Mock
@@ -31,6 +33,7 @@ class UserServiceImplTest {
 
 
     @Test
+    @DisplayName("Save User - Success")
     void testSave() {
         // Arrange
         User userToSave = new User("testUser", "testPassword", "ROLE_USER");
@@ -52,6 +55,7 @@ class UserServiceImplTest {
 
 
     @Test
+    @DisplayName("Find User By Username - Success")
     void testFindByUsername() {
         // Arrange
         String username = "testUser";
@@ -68,6 +72,7 @@ class UserServiceImplTest {
     }
 
     @Test
+    @DisplayName("Create User - Success")
     void testCreateUser() {
         // Arrange
         String username = "testUser";
@@ -83,6 +88,7 @@ class UserServiceImplTest {
     }
 
     @Test
+    @DisplayName("Create User Username Taken")
     void testCreateUserUsernameTaken() {
         // Arrange
         String username = "existingUser";
@@ -97,6 +103,7 @@ class UserServiceImplTest {
     }
 
     @Test
+    @DisplayName("Load User By Username - Success")
     void testLoadUserByUsername() {
         // Arrange
         String username = "testUser";
@@ -116,6 +123,7 @@ class UserServiceImplTest {
 
 
     @Test
+    @DisplayName("Load User By Username User Not Found")
     void testLoadUserByUsernameUserNotFound() {
         // Arrange
         String username = "nonExistingUser";
